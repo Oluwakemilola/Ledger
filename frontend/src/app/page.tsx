@@ -52,10 +52,10 @@ const FEATURES = [
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen flex-col bg-[var(--paper)]">
+    <div className="flex min-h-screen flex-col bg-[var(--paper)] page-enter">
       {/* Nav */}
       <header className="border-b border-[var(--rule-light)]">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
+        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-4 py-5 sm:px-6">
           <span className="font-[family-name:var(--font-display)] text-xl font-semibold tracking-tight text-[var(--ink)]">
             Kobo
           </span>
@@ -66,7 +66,7 @@ export default function Home() {
           </nav>
           <a
             href="/register"
-            className="rounded-sm bg-[var(--ink)] px-4 py-2 text-[14px] font-medium text-[var(--paper)] transition hover:bg-[var(--ledger-dim)]"
+            className="rounded-lg bg-[var(--ink)] px-4 py-2 text-[14px] font-medium text-[var(--paper)] transition-all duration-150 hover:bg-[var(--ledger-dim)] active:scale-[0.98] focus-visible:ring-2 focus-visible:ring-[var(--ledger)] focus-visible:ring-offset-2"
           >
             Get started
           </a>
@@ -75,12 +75,12 @@ export default function Home() {
 
       {/* Hero */}
       <section className="border-b border-[var(--rule-light)] bg-[var(--paper)]">
-        <div className="mx-auto grid max-w-6xl items-center gap-16 px-6 py-20 md:grid-cols-2 md:py-28">
+        <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-16 sm:px-6 sm:py-20 md:grid-cols-2 md:gap-16 md:py-28">
           <div>
             <p className="mb-5 font-[family-name:var(--font-mono)] text-[12px] uppercase tracking-[0.2em] text-[var(--ledger)]">
               Built for small business, not enterprise
             </p>
-            <h1 className="font-[family-name:var(--font-display)] text-[2.75rem] leading-[1.08] tracking-tight text-[var(--ink)] md:text-[3.4rem]">
+            <h1 className="font-[family-name:var(--font-display)] text-[2.4rem] leading-[1.05] tracking-tight text-[var(--ink)] sm:text-[2.75rem] md:text-[3.4rem]">
               Every expense,{" "}
               <span className="italic font-medium">accounted for</span>.
             </h1>
@@ -92,13 +92,13 @@ export default function Home() {
             <div className="mt-9 flex items-center gap-4">
               <a
                 href="/register"
-                className="rounded-sm bg-[var(--ledger)] px-6 py-3 text-[14px] font-medium text-white transition hover:bg-[var(--ledger-dim)]"
+                className="rounded-lg bg-[var(--ledger)] px-6 py-3 text-[14px] font-medium text-white transition-all duration-150 hover:bg-[var(--ledger-dim)] active:scale-[0.98] focus-visible:ring-2 focus-visible:ring-[var(--ledger)] focus-visible:ring-offset-2"
               >
                 Start free — no card needed
               </a>
               <a
                 href="#how"
-                className="text-[14px] font-medium text-[var(--ink)] underline decoration-[var(--rule-light)] underline-offset-4 hover:decoration-[var(--ink)]"
+                className="text-[14px] font-medium text-[var(--ink)] underline decoration-[var(--rule-light)] underline-offset-4 transition-colors hover:decoration-[var(--ink)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ledger)] focus-visible:ring-offset-2"
               >
                 See how it works
               </a>
@@ -119,9 +119,9 @@ export default function Home() {
           <h2 className="mb-12 max-w-xl font-[family-name:var(--font-display)] text-[2rem] leading-tight text-[var(--paper)]">
             The same four problems show up in almost every small business.
           </h2>
-          <div className="grid gap-px overflow-hidden rounded-sm border border-[var(--rule-dark)] bg-[var(--rule-dark)] md:grid-cols-2">
+          <div className="grid gap-px overflow-hidden rounded-[20px] border border-[var(--rule-dark)] bg-[var(--rule-dark)] md:grid-cols-2">
             {PROBLEMS.map((p) => (
-              <div key={p.n} className="bg-[var(--ink)] p-8">
+              <div key={p.n} className="bg-[var(--ink)] p-6 sm:p-8">
                 <span className="font-[family-name:var(--font-mono)] text-[13px] text-[var(--paper)]/40">
                   {p.n}
                 </span>
@@ -146,7 +146,7 @@ export default function Home() {
           <h2 className="mb-14 max-w-xl font-[family-name:var(--font-display)] text-[2rem] leading-tight text-[var(--ink)]">
             From receipt to reconciled books, in three steps.
           </h2>
-          <div className="grid gap-10 md:grid-cols-3">
+          <div className="grid gap-8 md:grid-cols-3 md:gap-10">
             {STEPS.map((s, i) => (
               <div key={s.n} className="relative pl-0">
                 <div className="flex items-baseline gap-3">
@@ -181,9 +181,9 @@ export default function Home() {
           <h2 className="mb-12 max-w-xl font-[family-name:var(--font-display)] text-[2rem] leading-tight text-[var(--ink)]">
             Everything the MVP needs, nothing an SME won't use.
           </h2>
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {FEATURES.map((f) => (
-              <div key={f.title} className="border-t border-[var(--rule-light)] pt-5">
+              <div key={f.title} className="rounded-[18px] border border-[var(--rule-light)] bg-white/70 p-5 shadow-[0_1px_2px_rgba(14,26,38,0.04),0_8px_24px_-8px_rgba(14,26,38,0.12)]">
                 <h3 className="font-[family-name:var(--font-display)] text-[17px] text-[var(--ink)]">
                   {f.title}
                 </h3>
@@ -198,20 +198,20 @@ export default function Home() {
 
       {/* CTA */}
       <section className="bg-[var(--ink)]">
-        <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-8 px-6 py-16 md:flex-row md:items-center">
+        <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-8 px-4 py-16 sm:px-6 md:flex-row md:items-center">
           <h2 className="max-w-md font-[family-name:var(--font-display)] text-[1.8rem] leading-tight text-[var(--paper)]">
             Close the books with confidence this month.
           </h2>
           <a
             href="/register"
-            className="whitespace-nowrap rounded-sm bg-[var(--stamp)] px-6 py-3 text-[14px] font-medium text-[var(--ink)] transition hover:opacity-90"
+            className="whitespace-nowrap rounded-lg bg-[var(--stamp)] px-6 py-3 text-[14px] font-medium text-[var(--ink)] transition-all duration-150 hover:opacity-90 active:scale-[0.98] focus-visible:ring-2 focus-visible:ring-[var(--stamp)] focus-visible:ring-offset-2"
           >
             Start free — no card needed
           </a>
         </div>
       </section>
 
-      <footer className="mx-auto w-full max-w-6xl px-6 py-8">
+      <footer className="mx-auto w-full max-w-6xl px-4 py-8 sm:px-6">
         <p className="font-[family-name:var(--font-mono)] text-[12px] text-[var(--slate)]/60">
           © {new Date().getFullYear()} Kobo. Built for small businesses.
         </p>

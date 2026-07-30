@@ -35,7 +35,7 @@ export default function LedgerHero() {
   const total = ROWS.slice(0, visibleRows).reduce((s, r) => s + r.amount, 0);
 
   return (
-    <div className="relative w-full max-w-md rounded-sm border border-[var(--rule-dark)]/15 bg-[var(--paper)] shadow-[0_1px_0_rgba(0,0,0,0.05),0_20px_50px_-20px_rgba(14,26,38,0.45)]">
+    <div className="relative w-full max-w-md rounded-[20px] border border-[var(--rule-dark)]/15 bg-[var(--paper)] shadow-[0_1px_2px_rgba(14,26,38,0.04),0_8px_24px_-8px_rgba(14,26,38,0.12)]">
       {/* Ledger header strip */}
       <div className="flex items-center justify-between border-b border-[var(--rule-light)] px-5 py-3">
         <span className="font-[var(--font-mono)] text-[11px] uppercase tracking-[0.18em] text-[var(--slate)]/60">

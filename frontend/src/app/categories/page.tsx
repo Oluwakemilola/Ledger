@@ -96,7 +96,7 @@ export default function CategoriesPage() {
   return (
     <ProtectedRoute>
       <AppShell>
-        <div className="mx-auto max-w-5xl">
+        <div className="mx-auto max-w-5xl page-enter">
           <div className="flex flex-col gap-4 border-b border-[var(--rule-light)] pb-6 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <p className="font-[family-name:var(--font-mono)] text-[11px] uppercase tracking-[0.3em] text-[var(--ledger)]">
@@ -109,7 +109,7 @@ export default function CategoriesPage() {
             </div>
           </div>
 
-          <form onSubmit={handleCreate} className="mt-6 rounded-lg border border-[var(--rule-light)] bg-white/80 p-4 shadow-sm sm:flex sm:items-end sm:gap-3">
+          <form onSubmit={handleCreate} className="mt-6 rounded-[20px] border border-[var(--rule-light)] bg-white/80 p-4 shadow-[0_1px_2px_rgba(14,26,38,0.04),0_8px_24px_-8px_rgba(14,26,38,0.12)] sm:flex sm:items-end sm:gap-3 sm:p-6">
             <label className="flex-1 text-sm font-medium text-[var(--ink)]">
               <span className="mb-2 block">Add a category</span>
               <input
@@ -122,7 +122,7 @@ export default function CategoriesPage() {
             <button
               type="submit"
               disabled={submitting}
-              className="mt-3 inline-flex items-center justify-center gap-2 rounded-lg bg-[var(--ledger)] px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[var(--ledger-dim)] disabled:cursor-not-allowed disabled:opacity-70 sm:mt-0"
+              className="mt-3 inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-[var(--ledger)] px-4 py-2.5 text-sm font-medium text-white transition-all duration-150 hover:bg-[var(--ledger-dim)] active:scale-[0.98] focus-visible:ring-2 focus-visible:ring-[var(--ledger)] focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-70 sm:mt-0"
             >
               <Plus size={16} />
               Add category
@@ -141,19 +141,20 @@ export default function CategoriesPage() {
                 <div key={index} className="h-16 animate-pulse rounded-lg border border-[var(--rule-light)] bg-white/80" />
               ))
             ) : categories.length === 0 ? (
-              <div className="rounded-lg border border-dashed border-[var(--rule-light)] bg-white/80 p-8 text-center text-sm text-[var(--slate)]">
-                No categories yet. Start with your first one above.
+              <div className="rounded-[20px] border border-dashed border-[var(--rule-light)] bg-white/80 p-8 text-center text-sm text-[var(--slate)]">
+                <p className="font-[family-name:var(--font-display)] text-[1rem] text-[var(--ink)]">No categories yet</p>
+                <p className="mt-2">Start with your first category to organize future expenses.</p>
               </div>
             ) : (
               categories.map((category) => (
-                <div key={category._id} className="flex items-center justify-between rounded-lg border border-[var(--rule-light)] bg-white/80 p-4 shadow-sm transition-colors hover:bg-[var(--paper)]">
+                <div key={category._id} className="flex items-center justify-between rounded-[16px] border border-[var(--rule-light)] bg-white/80 p-4 shadow-[0_1px_2px_rgba(14,26,38,0.04),0_8px_24px_-8px_rgba(14,26,38,0.12)] transition-all duration-150 hover:bg-[var(--paper)]/80 hover:shadow-[0_4px_16px_-4px_rgba(14,26,38,0.15)]">
                   <div>
                     <p className="font-medium text-[var(--ink)]">{category.name}</p>
                     <p className="mt-1 text-sm text-[var(--slate)]">{counts[category._id] || 0} entr{(counts[category._id] || 0) === 1 ? "y" : "ies"}</p>
                   </div>
                   <button
                     onClick={() => void handleDelete(category)}
-                    className="rounded-lg border border-[var(--rule-light)] p-2 text-[var(--slate)] transition-colors hover:bg-white"
+                    className="flex min-h-11 min-w-11 items-center justify-center rounded-lg border border-[var(--rule-light)] p-2 text-[var(--slate)] transition-all duration-150 hover:bg-white focus-visible:ring-2 focus-visible:ring-[var(--ledger)] focus-visible:ring-offset-2"
                   >
                     <Trash2 size={16} />
                   </button>

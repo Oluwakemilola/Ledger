@@ -122,20 +122,20 @@ export default function DashboardPage() {
   return (
     <ProtectedRoute>
       <AppShell>
-        <div className="mx-auto max-w-6xl">
+        <div className="mx-auto max-w-6xl page-enter">
           <div className="flex flex-col gap-4 border-b border-[var(--rule-light)] pb-6 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <p className="font-[family-name:var(--font-mono)] text-[11px] uppercase tracking-[0.3em] text-[var(--ledger)]">
                 Overview
               </p>
-              <h1 className="mt-2 font-[family-name:var(--font-display)] text-[2rem] text-[var(--ink)] sm:text-[2.4rem]">
+              <h1 className="mt-2 font-[family-name:var(--font-display)] text-[1.9rem] leading-tight text-[var(--ink)] sm:text-[2.4rem]">
                 Dashboard
               </h1>
               <p className="mt-2 text-sm text-[var(--slate)]">{monthLabel}</p>
             </div>
             <Link
               href="/entries"
-              className="inline-flex items-center gap-2 rounded-lg bg-[var(--ledger)] px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[var(--ledger-dim)]"
+              className="inline-flex min-h-11 items-center gap-2 rounded-lg bg-[var(--ledger)] px-4 py-2.5 text-sm font-medium text-white transition-all duration-150 hover:bg-[var(--ledger-dim)] active:scale-[0.98] focus-visible:ring-2 focus-visible:ring-[var(--ledger)] focus-visible:ring-offset-2"
             >
               <Plus size={16} />
               New expense
@@ -143,7 +143,7 @@ export default function DashboardPage() {
           </div>
 
           <div className="mt-8 grid gap-4 lg:grid-cols-3">
-            <div className="rounded-lg border border-[var(--rule-light)] bg-white/80 p-6 shadow-sm">
+            <div className="rounded-[20px] border border-[var(--rule-light)] bg-white/80 p-6 shadow-[0_1px_2px_rgba(14,26,38,0.04),0_8px_24px_-8px_rgba(14,26,38,0.12)] transition-all duration-200 hover:shadow-[0_4px_16px_-4px_rgba(14,26,38,0.15)]">
               <div className="flex items-center justify-between">
                 <p className="text-sm text-[var(--slate)]">Total spend this month</p>
                 <BadgeDollarSign size={18} className="text-[var(--ledger)]" />
@@ -230,12 +230,16 @@ export default function DashboardPage() {
                     <div key={index} className="h-14 animate-pulse rounded-lg bg-[var(--paper)]" />
                   ))
                 ) : recentEntries.length === 0 ? (
-                  <div className="rounded-lg border border-dashed border-[var(--rule-light)] p-6 text-sm text-[var(--slate)]">
-                    No expenses yet — add your first one.
+                  <div className="rounded-[20px] border border-dashed border-[var(--rule-light)] p-8 text-center text-sm text-[var(--slate)]">
+                    <p className="font-[family-name:var(--font-display)] text-[1rem] text-[var(--ink)]">No expenses yet</p>
+                    <p className="mt-2">Add your first expense to start building your record.</p>
+                    <Link href="/entries" className="mt-4 inline-flex min-h-11 items-center rounded-lg bg-[var(--ledger)] px-4 py-2.5 text-sm font-medium text-white transition-all duration-150 hover:bg-[var(--ledger-dim)] active:scale-[0.98]">
+                      Add your first expense
+                    </Link>
                   </div>
                 ) : (
                   recentEntries.map((entry) => (
-                    <div key={entry._id} className="flex items-center justify-between rounded-lg border border-[var(--rule-light)] bg-[var(--paper)] px-4 py-3 transition-colors hover:bg-white">
+                    <div key={entry._id} className="flex items-center justify-between rounded-[16px] border border-[var(--rule-light)] bg-[var(--paper)] px-4 py-3 transition-colors duration-150 hover:bg-white/80 hover:shadow-[0_4px_16px_-4px_rgba(14,26,38,0.15)]">
                       <div>
                         <p className="font-medium text-[var(--ink)]">{entry.vendor}</p>
                         <div className="mt-1 flex items-center gap-2 text-sm text-[var(--slate)]">

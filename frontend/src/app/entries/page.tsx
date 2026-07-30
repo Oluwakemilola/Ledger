@@ -80,13 +80,13 @@ export default function EntriesPage() {
   return (
     <ProtectedRoute>
       <AppShell>
-        <div className="mx-auto max-w-6xl">
+        <div className="mx-auto max-w-6xl page-enter">
           <div className="flex flex-col gap-4 border-b border-[var(--rule-light)] pb-6 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <p className="font-[family-name:var(--font-mono)] text-[11px] uppercase tracking-[0.3em] text-[var(--ledger)]">
                 Kobo
               </p>
-              <h1 className="mt-2 font-[family-name:var(--font-display)] text-[2rem] text-[var(--ink)] sm:text-[2.4rem]">
+              <h1 className="mt-2 font-[family-name:var(--font-display)] text-[1.9rem] leading-tight text-[var(--ink)] sm:text-[2.4rem]">
                 Entries
               </h1>
               <p className="mt-2 text-sm text-[var(--slate)]">Track every expense and keep the trail current.</p>
@@ -96,16 +96,16 @@ export default function EntriesPage() {
                 setSelectedEntry(null);
                 setModalOpen(true);
               }}
-              className="inline-flex items-center justify-center gap-2 rounded-lg bg-[var(--ledger)] px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[var(--ledger-dim)]"
+              className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-[var(--ledger)] px-4 py-2.5 text-sm font-medium text-white transition-all duration-150 hover:bg-[var(--ledger-dim)] active:scale-[0.98] focus-visible:ring-2 focus-visible:ring-[var(--ledger)] focus-visible:ring-offset-2"
             >
               <Plus size={16} />
               Add expense
             </button>
           </div>
 
-          <div className="mt-6 rounded-lg border border-[var(--rule-light)] bg-white/80 p-4 shadow-sm">
-            <div className="flex flex-col gap-3 md:flex-row md:items-end">
-              <label className="flex-1 text-sm font-medium text-[var(--ink)]">
+          <div className="mt-6 rounded-[20px] border border-[var(--rule-light)] bg-white/80 p-4 shadow-[0_1px_2px_rgba(14,26,38,0.04),0_8px_24px_-8px_rgba(14,26,38,0.12)] sm:p-6">
+            <div className="flex flex-col gap-3 md:flex-row md:flex-wrap md:items-end">
+              <label className="w-full flex-1 text-sm font-medium text-[var(--ink)] md:min-w-[220px]">
                 <span className="mb-2 flex items-center gap-2">
                   <Search size={14} /> Search vendor
                 </span>
@@ -154,7 +154,7 @@ export default function EntriesPage() {
             </div>
           </div>
 
-          <div className="mt-6 overflow-hidden rounded-lg border border-[var(--rule-light)] bg-white/80 shadow-sm">
+          <div className="mt-6 overflow-hidden rounded-[20px] border border-[var(--rule-light)] bg-white/80 shadow-[0_1px_2px_rgba(14,26,38,0.04),0_8px_24px_-8px_rgba(14,26,38,0.12)]">
             {loading ? (
               <div className="space-y-3 p-6">
                 {Array.from({ length: 4 }).map((_, index) => (
@@ -162,9 +162,19 @@ export default function EntriesPage() {
                 ))}
               </div>
             ) : filteredEntries.length === 0 ? (
-              <div className="p-10 text-center">
+              <div className="p-8 text-center sm:p-10">
                 <p className="font-[family-name:var(--font-display)] text-[1.15rem] text-[var(--ink)]">No expenses yet</p>
                 <p className="mt-2 text-sm text-[var(--slate)]">Try widening the filters or add your first expense from the button above.</p>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setSelectedEntry(null);
+                    setModalOpen(true);
+                  }}
+                  className="mt-5 inline-flex min-h-11 items-center justify-center rounded-lg bg-[var(--ledger)] px-4 py-2.5 text-sm font-medium text-white transition-all duration-150 hover:bg-[var(--ledger-dim)] active:scale-[0.98]"
+                >
+                  Add your first expense
+                </button>
               </div>
             ) : (
               <>
@@ -181,7 +191,7 @@ export default function EntriesPage() {
                     </thead>
                     <tbody>
                       {filteredEntries.map((entry) => (
-                        <tr key={entry._id} className="border-t border-[var(--rule-light)] transition-colors hover:bg-[var(--paper)]">
+                        <tr key={entry._id} className="border-t border-[var(--rule-light)] transition-colors duration-150 hover:bg-[var(--paper)]/60">
                           <td className="px-4 py-3 font-medium text-[var(--ink)]">{entry.vendor}</td>
                           <td className="px-4 py-3">
                             <span className="rounded-full bg-[var(--paper)] px-2.5 py-1 text-[11px] uppercase tracking-[0.2em] text-[var(--ledger)]">
@@ -197,13 +207,13 @@ export default function EntriesPage() {
                                   setSelectedEntry(entry);
                                   setModalOpen(true);
                                 }}
-                                className="rounded-lg border border-[var(--rule-light)] p-2 text-[var(--slate)] transition-colors hover:bg-white"
+                                className="flex min-h-11 min-w-11 items-center justify-center rounded-lg border border-[var(--rule-light)] p-2 text-[var(--slate)] transition-all duration-150 hover:bg-white focus-visible:ring-2 focus-visible:ring-[var(--ledger)] focus-visible:ring-offset-2"
                               >
                                 <Edit3 size={16} />
                               </button>
                               <button
                                 onClick={() => void handleDelete(entry)}
-                                className="rounded-lg border border-[var(--rule-light)] p-2 text-[var(--slate)] transition-colors hover:bg-white"
+                                className="flex min-h-11 min-w-11 items-center justify-center rounded-lg border border-[var(--rule-light)] p-2 text-[var(--slate)] transition-all duration-150 hover:bg-white focus-visible:ring-2 focus-visible:ring-[var(--ledger)] focus-visible:ring-offset-2"
                               >
                                 <Trash2 size={16} />
                               </button>
@@ -217,7 +227,7 @@ export default function EntriesPage() {
 
                 <div className="space-y-3 p-4 md:hidden">
                   {filteredEntries.map((entry) => (
-                    <div key={entry._id} className="rounded-lg border border-[var(--rule-light)] bg-[var(--paper)] p-4">
+                    <div key={entry._id} className="rounded-[16px] border border-[var(--rule-light)] bg-[var(--paper)] p-4 shadow-[0_1px_2px_rgba(14,26,38,0.04),0_8px_24px_-8px_rgba(14,26,38,0.12)]">
                       <div className="flex items-start justify-between gap-3">
                         <div>
                           <p className="font-medium text-[var(--ink)]">{entry.vendor}</p>

@@ -81,7 +81,7 @@ export default function RegisterPage() {
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-[var(--paper)] px-4 py-10">
-      <div className="w-full max-w-md rounded-lg border border-[var(--rule-light)] bg-white/80 p-8 shadow-sm">
+      <div className="w-full max-w-md rounded-[24px] border border-[var(--rule-light)] bg-white/80 p-6 shadow-[0_1px_2px_rgba(14,26,38,0.04),0_8px_24px_-8px_rgba(14,26,38,0.12)] sm:p-8">
         <p className="font-[family-name:var(--font-mono)] text-[11px] uppercase tracking-[0.3em] text-[var(--ledger)]">
           Create account
         </p>
@@ -174,14 +174,14 @@ export default function RegisterPage() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full rounded-lg bg-[var(--ledger)] px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[var(--ledger-dim)] disabled:cursor-not-allowed disabled:opacity-70"
+            className="w-full rounded-lg bg-[var(--ledger)] px-4 py-2.5 text-sm font-medium text-white transition-all duration-150 hover:bg-[var(--ledger-dim)] active:scale-[0.98] focus-visible:ring-2 focus-visible:ring-[var(--ledger)] focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-70"
           >
             {loading ? "Creating account…" : "Create account"}
           </button>
         </form>
 
         <p className="mt-4 text-center text-sm text-[var(--slate)]">
-          <a href="/login" className="font-medium text-[var(--ledger)]">
+          <a href="/login" className="font-medium text-[var(--ledger)] transition-colors hover:text-[var(--ledger-dim)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ledger)] focus-visible:ring-offset-2">
             Already have an account? Log in
           </a>
         </p>

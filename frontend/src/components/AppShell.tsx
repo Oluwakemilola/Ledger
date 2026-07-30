@@ -39,7 +39,7 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
               key={item.href}
               href={item.href}
               onClick={() => setMobileOpen(false)}
-              className={`flex items-center gap-3 rounded-lg px-3 py-3 text-sm font-medium transition-colors ${
+              className={`flex min-h-11 items-center gap-3 rounded-lg px-3 py-3 text-sm font-medium transition-all duration-150 focus-visible:ring-2 focus-visible:ring-[var(--stamp)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--ink)] ${
                 active
                   ? "bg-[color:rgba(255,255,255,0.12)] text-white"
                   : "text-[color:rgba(246,243,236,0.8)] hover:bg-[color:rgba(255,255,255,0.08)] hover:text-white"
@@ -60,7 +60,7 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
           logout();
           setMobileOpen(false);
         }}
-        className="mt-6 flex items-center gap-3 rounded-lg border border-white/10 px-3 py-3 text-sm font-medium text-[color:rgba(246,243,236,0.85)] transition-colors hover:bg-white/10"
+        className="mt-6 flex min-h-11 items-center gap-3 rounded-lg border border-white/10 px-3 py-3 text-sm font-medium text-[color:rgba(246,243,236,0.85)] transition-all duration-150 hover:bg-white/10 focus-visible:ring-2 focus-visible:ring-[var(--stamp)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--ink)]"
       >
         <LogOut size={16} />
         Logout
@@ -88,12 +88,24 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
               </div>
               <button
                 onClick={() => setMobileOpen((value) => !value)}
-                className="rounded-lg border border-[var(--rule-light)] p-2 text-[var(--slate)]"
+                className="flex min-h-11 min-w-11 items-center justify-center rounded-lg border border-[var(--rule-light)] bg-white/80 p-2 text-[var(--slate)] shadow-[0_1px_2px_rgba(14,26,38,0.04),0_8px_24px_-8px_rgba(14,26,38,0.12)] transition-all duration-150 focus-visible:ring-2 focus-visible:ring-[var(--ledger)] focus-visible:ring-offset-2"
               >
                 {mobileOpen ? <X size={18} /> : <Menu size={18} />}
               </button>
             </div>
-            {mobileOpen ? <div className="mt-4 rounded-lg border border-[var(--rule-light)] bg-white/80 p-2 shadow-sm">{sidebar}</div> : null}
+            {mobileOpen ? (
+              <>
+                <button
+                  type="button"
+                  aria-label="Close navigation"
+                  className="fixed inset-0 z-30 bg-[var(--ink)]/40 backdrop-blur-sm"
+                  onClick={() => setMobileOpen(false)}
+                />
+                <div className="fixed inset-y-0 left-0 z-40 mt-16 w-[85vw] max-w-[320px] translate-x-0 rounded-r-2xl border-r border-[var(--rule-light)] bg-[var(--ink)] shadow-[0_20px_60px_-20px_rgba(14,26,38,0.55)] transition-transform duration-200">
+                  {sidebar}
+                </div>
+              </>
+            ) : null}
           </header>
 
           <main className="min-h-screen bg-[var(--paper)] p-4 sm:p-6 lg:p-8">{children}</main>

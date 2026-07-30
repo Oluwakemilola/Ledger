@@ -179,13 +179,13 @@ export default function ReportsPage() {
   return (
     <ProtectedRoute>
       <AppShell>
-        <div className="mx-auto max-w-6xl">
+        <div className="mx-auto max-w-6xl page-enter">
           <div className="flex flex-col gap-4 border-b border-[var(--rule-light)] pb-6 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <p className="font-[family-name:var(--font-mono)] text-[11px] uppercase tracking-[0.3em] text-[var(--ledger)]">
                 Reports
               </p>
-              <h1 className="mt-2 font-[family-name:var(--font-display)] text-[2rem] text-[var(--ink)] sm:text-[2.4rem]">
+              <h1 className="mt-2 font-[family-name:var(--font-display)] text-[1.9rem] leading-tight text-[var(--ink)] sm:text-[2.4rem]">
                 Expense reports
               </h1>
               <p className="mt-2 text-sm text-[var(--slate)]">
@@ -198,7 +198,7 @@ export default function ReportsPage() {
                 onClick={handleDownload}
                 disabled={!hasFilteredResults}
                 title={!hasFilteredResults ? "Add entries to export the current report" : "Download the filtered report as CSV"}
-                className="inline-flex items-center justify-center rounded-lg bg-[var(--ledger)] px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[var(--ledger-dim)] disabled:cursor-not-allowed disabled:opacity-70"
+                className="inline-flex min-h-11 items-center justify-center rounded-lg bg-[var(--ledger)] px-4 py-2.5 text-sm font-medium text-white transition-all duration-150 hover:bg-[var(--ledger-dim)] active:scale-[0.98] focus-visible:ring-2 focus-visible:ring-[var(--ledger)] focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-70"
               >
                 Download report
               </button>
@@ -208,9 +208,9 @@ export default function ReportsPage() {
             </div>
           </div>
 
-          <div className="mt-6 rounded-lg border border-[var(--rule-light)] bg-white/80 p-4 shadow-sm">
-            <div className="flex flex-col gap-3 lg:flex-row lg:items-end">
-              <label className="text-sm font-medium text-[var(--ink)] lg:flex-1">
+          <div className="mt-6 rounded-[20px] border border-[var(--rule-light)] bg-white/80 p-4 shadow-[0_1px_2px_rgba(14,26,38,0.04),0_8px_24px_-8px_rgba(14,26,38,0.12)] sm:p-6">
+            <div className="flex flex-col gap-3 md:flex-row md:flex-wrap lg:items-end">
+              <label className="w-full text-sm font-medium text-[var(--ink)] md:w-[220px] lg:flex-1">
                 <span className="mb-2 block">Category</span>
                 <select
                   value={categoryFilter}
@@ -253,19 +253,19 @@ export default function ReportsPage() {
               ))}
             </div>
           ) : !hasEntries ? (
-            <div className="mt-8 rounded-lg border border-[var(--rule-light)] bg-white/80 p-10 text-center shadow-sm">
+            <div className="mt-8 rounded-[20px] border border-[var(--rule-light)] bg-white/80 p-8 text-center shadow-[0_1px_2px_rgba(14,26,38,0.04),0_8px_24px_-8px_rgba(14,26,38,0.12)] sm:p-10">
               <p className="font-[family-name:var(--font-display)] text-[1.2rem] text-[var(--ink)]">
                 No expenses yet — once you add entries, your reports will show up here.
               </p>
               <p className="mt-3 text-sm text-[var(--slate)]">
                 Start by adding your first expense in Kobo and come back to review the trends.
               </p>
-              <Link href="/entries" className="mt-5 inline-flex items-center rounded-lg bg-[var(--ledger)] px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[var(--ledger-dim)]">
+              <Link href="/entries" className="mt-5 inline-flex min-h-11 items-center rounded-lg bg-[var(--ledger)] px-4 py-2.5 text-sm font-medium text-white transition-all duration-150 hover:bg-[var(--ledger-dim)] active:scale-[0.98]">
                 Add your first expense
               </Link>
             </div>
           ) : !hasFilteredResults ? (
-            <div className="mt-8 rounded-lg border border-dashed border-[var(--rule-light)] bg-white/80 p-10 text-center shadow-sm">
+            <div className="mt-8 rounded-[20px] border border-dashed border-[var(--rule-light)] bg-white/80 p-8 text-center shadow-[0_1px_2px_rgba(14,26,38,0.04),0_8px_24px_-8px_rgba(14,26,38,0.12)] sm:p-10">
               <p className="font-[family-name:var(--font-display)] text-[1.1rem] text-[var(--ink)]">
                 No expenses match these filters.
               </p>

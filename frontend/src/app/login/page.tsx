@@ -29,7 +29,7 @@ export default function LoginPage() {
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-[var(--paper)] px-4 py-10">
-      <div className="w-full max-w-md rounded-lg border border-[var(--rule-light)] bg-white/80 p-8 shadow-sm">
+      <div className="w-full max-w-md rounded-[24px] border border-[var(--rule-light)] bg-white/80 p-6 shadow-[0_1px_2px_rgba(14,26,38,0.04),0_8px_24px_-8px_rgba(14,26,38,0.12)] sm:p-8">
         <p className="font-[family-name:var(--font-mono)] text-[11px] uppercase tracking-[0.3em] text-[var(--ledger)]">
           Sign in
         </p>
@@ -52,7 +52,7 @@ export default function LoginPage() {
               type="email"
               value={email}
               onChange={(event) => setEmail(event.target.value)}
-              className="w-full rounded-lg border border-[var(--rule-light)] bg-white px-3 py-2.5 text-sm outline-none focus:border-[var(--ledger)]"
+              className="w-full rounded-lg border border-[var(--rule-light)] bg-white px-3 py-2.5 text-sm outline-none transition-all duration-150 focus:border-[var(--ledger)] focus-visible:ring-2 focus-visible:ring-[var(--ledger)]/20"
             />
           </label>
           <label className="block text-sm font-medium text-[var(--ink)]">
@@ -61,13 +61,13 @@ export default function LoginPage() {
               type="password"
               value={password}
               onChange={(event) => setPassword(event.target.value)}
-              className="w-full rounded-lg border border-[var(--rule-light)] bg-white px-3 py-2.5 text-sm outline-none focus:border-[var(--ledger)]"
+              className="w-full rounded-lg border border-[var(--rule-light)] bg-white px-3 py-2.5 text-sm outline-none transition-all duration-150 focus:border-[var(--ledger)] focus-visible:ring-2 focus-visible:ring-[var(--ledger)]/20"
             />
           </label>
           <button
             type="submit"
             disabled={loading}
-            className="w-full rounded-lg bg-[var(--ledger)] px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[var(--ledger-dim)]"
+            className="w-full rounded-lg bg-[var(--ledger)] px-4 py-2.5 text-sm font-medium text-white transition-all duration-150 hover:bg-[var(--ledger-dim)] active:scale-[0.98] focus-visible:ring-2 focus-visible:ring-[var(--ledger)] focus-visible:ring-offset-2"
           >
             {loading ? "Signing in…" : "Sign in"}
           </button>
