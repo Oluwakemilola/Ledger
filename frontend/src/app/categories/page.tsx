@@ -105,7 +105,7 @@ export default function CategoriesPage() {
               <h1 className="mt-2 font-[family-name:var(--font-display)] text-[2rem] text-[var(--ink)] sm:text-[2.4rem]">
                 Categories
               </h1>
-              <p className="mt-2 text-sm text-[var(--slate)]">Group expenses with a reusable ledger structure.</p>
+              <p className="mt-2 text-sm text-[var(--slate)]">Group expenses with a reusable Kobo structure.</p>
             </div>
           </div>
 

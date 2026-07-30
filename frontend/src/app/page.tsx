@@ -57,7 +57,7 @@ export default function Home() {
       <header className="border-b border-[var(--rule-light)]">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
           <span className="font-[family-name:var(--font-display)] text-xl font-semibold tracking-tight text-[var(--ink)]">
-            Ledger
+            Kobo
           </span>
           <nav className="hidden items-center gap-8 font-[family-name:var(--font-body)] text-[14px] text-[var(--slate)] md:flex">
             <a href="#problem" className="hover:text-[var(--ink)]">The problem</a>
@@ -85,7 +85,7 @@ export default function Home() {
               <span className="italic font-medium">accounted for</span>.
             </h1>
             <p className="mt-6 max-w-md text-[16px] leading-relaxed text-[var(--slate)]">
-              Ledger turns scattered receipts and WhatsApp reimbursement requests
+              Kobo turns scattered receipts and WhatsApp reimbursement requests
               into one clean, approvable trail — so you know where the money
               went before the month is over.
             </p>
@@ -213,7 +213,7 @@ export default function Home() {
 
       <footer className="mx-auto w-full max-w-6xl px-6 py-8">
         <p className="font-[family-name:var(--font-mono)] text-[12px] text-[var(--slate)]/60">
-          © {new Date().getFullYear()} Ledger. Built for small businesses.
+          © {new Date().getFullYear()} Kobo. Built for small businesses.
         </p>
       </footer>
     </div>

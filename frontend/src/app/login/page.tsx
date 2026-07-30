@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
 
 export default function LoginPage() {
-  const [email, setEmail] = useState("demo@ledger.test");
+  const [email, setEmail] = useState("demo@kobo.test");
   const [password, setPassword] = useState("password123");
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
@@ -37,7 +37,7 @@ export default function LoginPage() {
           Welcome back
         </h1>
         <p className="mt-2 text-sm text-[var(--slate)]">
-          Enter your credentials to access the expense ledger.
+          Enter your credentials to access your expense tracker.
         </p>
 
         <form onSubmit={handleSubmit} className="mt-6 space-y-4">

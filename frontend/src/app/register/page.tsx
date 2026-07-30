@@ -86,7 +86,7 @@ export default function RegisterPage() {
           Create account
         </p>
         <h1 className="mt-3 font-[family-name:var(--font-display)] text-[1.7rem] text-[var(--ink)]">
-          Set up your ledger
+          Set up your Kobo account
         </h1>
         <p className="mt-2 text-sm text-[var(--slate)]">
           Register your business to start tracking expenses.

@@ -39,7 +39,7 @@ export default function LedgerHero() {
       {/* Ledger header strip */}
       <div className="flex items-center justify-between border-b border-[var(--rule-light)] px-5 py-3">
         <span className="font-[var(--font-mono)] text-[11px] uppercase tracking-[0.18em] text-[var(--slate)]/60">
-          Expense Ledger — July
+          Expense tracking — July
         </span>
         <span className="h-2 w-2 rounded-full bg-[var(--ledger)]" />
       </div>

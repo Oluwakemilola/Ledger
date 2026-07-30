@@ -193,7 +193,7 @@ export default function DashboardPage() {
                   ))
                 ) : spendByCategory.length === 0 ? (
                   <div className="rounded-lg border border-dashed border-[var(--rule-light)] p-6 text-sm text-[var(--slate)]">
-                    No category spend yet. Add your first expense to begin the ledger.
+                    No category spend yet. Add your first expense to begin tracking.
                   </div>
                 ) : (
                   spendByCategory.map((item) => (

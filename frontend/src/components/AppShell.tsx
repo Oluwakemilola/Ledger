@@ -22,7 +22,7 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
     <aside className="flex h-full flex-col bg-[var(--ink)] px-5 py-6 text-[var(--paper)]">
       <div className="px-2 pb-8">
         <p className="font-[family-name:var(--font-mono)] text-[11px] uppercase tracking-[0.3em] text-[var(--stamp)]">
-          Ledger
+          Kobo
         </p>
         <h2 className="mt-3 font-[family-name:var(--font-display)] text-[1.4rem] leading-tight text-white">
           {user?.businessName || "Your business"}
@@ -80,7 +80,7 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
             <div className="flex items-center justify-between">
               <div>
                 <p className="font-[family-name:var(--font-mono)] text-[11px] uppercase tracking-[0.3em] text-[var(--ledger)]">
-                  Ledger
+                  Kobo
                 </p>
                 <h2 className="font-[family-name:var(--font-display)] text-[1.2rem] text-[var(--ink)]">
                   {user?.businessName || "Your business"}

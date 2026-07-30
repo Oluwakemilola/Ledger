@@ -3,7 +3,7 @@ import "./globals.css";
 import { AuthProvider } from "@/context/AuthContext";
 
 export const metadata: Metadata = {
-  title: "Ledger — Expense tracking for small businesses",
+  title: "Kobo — Expense tracking for small businesses",
   description:
     "Capture receipts, route approvals, and see where every naira goes — built for SMEs, not enterprises.",
 };

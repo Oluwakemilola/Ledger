@@ -169,7 +169,7 @@ export default function ReportsPage() {
     const url = URL.createObjectURL(blob);
     const link = document.createElement("a");
     link.href = url;
-    link.download = `ledger-report-${new Date().toISOString().slice(0, 10)}.csv`;
+    link.download = `kobo-report-${new Date().toISOString().slice(0, 10)}.csv`;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -258,7 +258,7 @@ export default function ReportsPage() {
                 No expenses yet — once you add entries, your reports will show up here.
               </p>
               <p className="mt-3 text-sm text-[var(--slate)]">
-                Start by adding your first expense in the ledger and come back to review the trends.
+                Start by adding your first expense in Kobo and come back to review the trends.
               </p>
               <Link href="/entries" className="mt-5 inline-flex items-center rounded-lg bg-[var(--ledger)] px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[var(--ledger-dim)]">
                 Add your first expense
